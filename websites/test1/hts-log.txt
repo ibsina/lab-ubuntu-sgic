@@ -1,0 +1,12 @@
+HTTrack3.49-2+libhtsjava.so.2 launched on Thu, 12 Jun 2025 02:11:27 at https://172.19.8.98
+(winhttrack https://172.19.8.98 -O "/home/seahk/websites/test1" -%v -F Firefox )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+02:11:34	Error: 	"Not Found" (404) at link https://172.19.8.98/blog-post-1_files/blog-image-1.jpg (from https://172.19.8.98/blog-post-1.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 7 seconds : 7 links scanned, 5 files written (305451 bytes overall) [307824 bytes received at 43974 bytes/sec], 3.5 requests per connection
+(1 errors, 0 warnings, 0 messages)

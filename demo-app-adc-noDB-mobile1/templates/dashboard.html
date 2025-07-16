@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ username }}</h2>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <h3>Add Comment</h3>
+        <form method="POST">
+            <textarea name="comment" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <h3>Comments</h3>
+        <ul>
+            {% for user, comment in comments %}
+                <li><b>{{ user }}:</b> {{ comment }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+HTTrack3.49-2+libhtsjava.so.2 launched on Thu, 12 Jun 2025 02:12:54 at https://172.19.8.98
+(winhttrack https://172.19.8.98 -O "/home/seahk/websites/test2" -%v -F Firefox )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+02:13:02	Warning: 	Retry after error 500 (Internal Server Error) at link https://172.19.8.98/user (from https://172.19.8.98/)
+02:13:02	Warning: 	Retry after error -4 (No data (connection closed)) at link https://172.19.8.98/featured-image.jpg (from https://172.19.8.98/styles.css)
+02:13:02	Error: 	"Not Found" (404) at link https://172.19.8.98/blog-post-1_files/blog-image-1.jpg (from https://172.19.8.98/blog-post-1.html)
+02:13:03	Warning: 	Retry after error 500 (Internal Server Error) at link https://172.19.8.98/user (from https://172.19.8.98/)
+02:13:04	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://172.19.8.98/user (from https://172.19.8.98/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 10 seconds : 11 links scanned, 5 files written (305589 bytes overall) [386350 bytes received at 38635 bytes/sec], 2.7 requests per connection
+(2 errors, 3 warnings, 0 messages)

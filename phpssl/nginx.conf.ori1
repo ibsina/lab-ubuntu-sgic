@@ -1,0 +1,18 @@
+server {
+    listen 443 ssl;  # Listen on port 443 for HTTPS connections
+    server_name backend.fortiseahk.com;  # Specify the server name (your domain)
+
+    ssl_certificate /etc/nginx/server.crt;  # Path to your SSL certificate
+    ssl_certificate_key /etc/nginx/server.key;  # Path to your SSL key
+
+    # Access log configuration (adjust path if using volume mount)
+    access_log /var/log/nginx/access.log main;
+    
+    location / {  # Match all requests to the root path
+        root /var/www/html;  # Set the root directory for serving content
+        index index.html index.htm;  # Specify the default index files
+
+        # Additional configuration options can be added here,
+        # such as error handling, caching, and content security policies
+    }
+}

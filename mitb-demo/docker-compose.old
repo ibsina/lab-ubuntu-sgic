@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  mitb-demo:
+    build: .
+    ports:
+      - "8031:5000"
+    volumes:
+      - ./app:/app
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MITB Protection Demo</title>
+</head>
+<body>
+  <h2>Transfer Money</h2>
+
+  <form id="transferForm">
+    To: <input type="text" name="to" value="Alice"><br>
+    Amount: <input type="number" name="amount" value="100"><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script>
+    // Normal AJAX form submission
+    document.getElementById('transferForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const data = {
+        to: formData.get('to'),
+        amount: formData.get('amount')
+      };
+
+      fetch('/transfer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(json => {
+        document.getElementById('response').innerText =
+          'Server received: ' + JSON.stringify(json.received);
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+demouser@demouser-pc:~$ nohup ./loop_legit_curl.sh </dev/null >/dev/null 2>&1 & 
+[1] 1002
+demouser@demouser-pc:~$ nohup ./loop_legit_curl.sh </dev/null >/dev/null 2>&1 & 
+[2] 1040
+demouser@demouser-pc:~$ nohup ./loop_attack_curl.sh </dev/null >/dev/null 2>&1 & 
+[3] 1294
+demouser@demouser-pc:~$ nohup ./loop_attack_curl.sh </dev/null >/dev/null 2>&1 & 
+[4] 1416
+demouser@demouser-pc:~$ nohup ./loop_brute.sh </dev/null >/dev/null 2>&1 & 
+[5] 2358
+demouser@demouser-pc:~$ ps ax | grep loop
+ 1002 pts/1    S      0:00 /bin/bash ./loop_legit_curl.sh
+ 1040 pts/1    S      0:00 /bin/bash ./loop_legit_curl.sh
+ 1294 pts/1    S      0:00 /bin/bash ./loop_attack_curl.sh
+ 1416 pts/1    S      0:00 /bin/bash ./loop_attack_curl.sh
+ 2358 pts/1    S      0:00 /bin/bash ./loop_brute.sh
+ 3118 pts/1    S+     0:00 grep --color=auto loop
+ 3410 ?        Ss     2:14 /usr/sbin/kerneloops --test
+ 3412 ?        Ss     2:12 /usr/sbin/kerneloops
+
+How to kill
+
+pkill loop_legit
+pkill lopp_attack
+pkill loop_brute

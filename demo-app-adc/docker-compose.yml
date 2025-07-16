@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5002:5000"
+    environment:
+      - DB_HOST=mysql_server
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_NAME=flaskapp
+    depends_on:
+      - mysql_server
+  mysql_server:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=flaskapp
+    ports:
+      - "3306:3306"
+

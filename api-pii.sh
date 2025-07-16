@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# API endpoint
+url="http://api-pii.demo/users"
+
+# Function to generate a random alphanumeric string
+random_string() {
+    local length=$1
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c "$length"
+}
+
+# Function to generate a random email
+random_email() {
+    echo "$(random_string 8)@example.com"
+}
+
+# Function to generate a random credit card number
+random_credit_card() {
+    echo "$(shuf -i 4000-4999 -n 1)-$(shuf -i 1000-9999 -n 1)-$(shuf -i 1000-9999 -n 1)-$(shuf -i 1000-9999 -n 1)"
+}
+
+# Function to generate a random passport number
+random_passport() {
+    echo "$(tr -dc 'A-Z' < /dev/urandom | head -c 1)$(shuf -i 1000000-9999999 -n 1)"
+}
+
+# Loop to send 500 requests
+for i in {1..500}
+do
+    # Create random payload
+    payload=$(cat <<EOF
+{
+    "id": $(shuf -i 1-10000 -n 1),
+    "name": "$(random_string 6) $(random_string 6)",
+    "email": "$(random_email)",
+    "password": "$(random_string 12)",
+    "creditcard": "$(random_credit_card)",
+    "passport": "$(random_passport)"
+}
+EOF
+    )
+
+    # Send POST request using curl
+    response=$(curl -s -w "%{http_code}" -o /dev/null -X POST "$url" \
+        -H "Content-Type: application/json" -H "key:15C723w63DC7C1016w06xC5zC35ADA54DzAz5333"\
+        -d "$payload")
+
+    # Log the result
+    echo "Request $i: HTTP $response"
+done
+

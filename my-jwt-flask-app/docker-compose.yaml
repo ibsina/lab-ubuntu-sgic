@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  flaskapp:
+    build: .
+    ports:
+      - "8030:8030"
+    environment:
+      - JWT_SECRET_KEY=fortinet-4awesome  # Change this to a strong secret key

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Comment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #form_container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px; /* At least 10 lines */
+            padding: 8px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="form_container">
+        <h1>Comment Form</h1>
+        <form method="post" action="/submit-form.php">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" maxlength="255" required>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" maxlength="255" required>
+
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+

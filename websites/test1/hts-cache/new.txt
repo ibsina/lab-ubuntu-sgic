@@ -1,0 +1,8 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+02:11:29	196/196	---M--	404	error ('Not%20Found')	text/html	date:Thu,%2012%20Jun%202025%2002:11:28%20GMT	https://172.19.8.98/robots.txt		(from )
+02:11:29	2201/2201	---M--	200	added ('OK')	text/html	etag:%22899-6084a77191ac0%22	https://172.19.8.98/	/home/seahk/websites/test1/172.19.8.98/index.html	(from )
+02:11:29	2060/2060	---M--	200	added ('OK')	text/css	etag:%2280c-6084a54593b00%22	https://172.19.8.98/styles.css	/home/seahk/websites/test1/172.19.8.98/styles.css	(from https://172.19.8.98/)
+02:11:30	1506/1506	---M--	200	added ('OK')	text/html	etag:%225e2-6084ab1272a40%22	https://172.19.8.98/blog-post-1.html	/home/seahk/websites/test1/172.19.8.98/blog-post-1.html	(from https://172.19.8.98/)
+02:11:32	297483/297483	---M--	200	added ('OK')	image/jpeg	etag:%2248a0b-6084a4c1f8480%22	https://172.19.8.98/featured-image.jpg	/home/seahk/websites/test1/172.19.8.98/featured-image.jpg	(from https://172.19.8.98/styles.css)
+02:11:32	2201/2201	---M--	200	added ('OK')	text/html	etag:%22899-6084a77191ac0%22	https://172.19.8.98/index.html	/home/seahk/websites/test1/172.19.8.98/index-2.html	(from https://172.19.8.98/blog-post-1.html)
+02:11:33	196/196	---M--	404	error ('Not%20Found')	text/html	date:Thu,%2012%20Jun%202025%2002:11:33%20GMT	https://172.19.8.98/blog-post-1_files/blog-image-1.jpg	/home/seahk/websites/test1/172.19.8.98/blog-post-1_files/blog-image-1.jpg	(from https://172.19.8.98/blog-post-1.html)

@@ -1,0 +1,7 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+04:43:29	196/196	---M--	404	error ('Not%20Found')	text/html	date:Thu,%2013%20Mar%202025%2004:43:28%20GMT	http://fweb-ml.demo/robots.txt		(from )
+04:43:29	11531/11531	---M--	200	added ('OK')	text/html	etag:%222d0b-620a492110438%22	http://fweb-ml.demo/	/home/seahk/websites/fweb-botdecepetion/fweb-ml.demo/index.html	(from )
+04:43:30	7129/7129	---M--	200	added ('OK')	text/css	etag:%221bd9-620a483cb4718%22	http://fweb-ml.demo/view.css	/home/seahk/websites/fweb-botdecepetion/fweb-ml.demo/view.css	(from http://fweb-ml.demo/)
+04:43:31	1876/1876	---M--	200	added ('OK')	text/javascript	etag:%22754-620a483d086d7%22	http://fweb-ml.demo/view.js	/home/seahk/websites/fweb-botdecepetion/fweb-ml.demo/view.js	(from http://fweb-ml.demo/)
+04:43:32	196/196	---M--	404	error ('Not%20Found')	text/html	date:Thu,%2013%20Mar%202025%2004:43:32%20GMT	http://fweb-ml.demo/css/iepngfix.htc	/home/seahk/websites/fweb-botdecepetion/fweb-ml.demo/css/iepngfix.htc	(from http://fweb-ml.demo/view.css)
+04:43:33	196/196	---M--	404	error ('Not%20Found')	text/html	date:Thu,%2013%20Mar%202025%2004:43:33%20GMT	http://fweb-ml.demo/fwb/shadow.gif	/home/seahk/websites/fweb-botdecepetion/fweb-ml.demo/fwb/shadow.gif	(from http://fweb-ml.demo/view.css)

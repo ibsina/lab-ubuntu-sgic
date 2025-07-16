@@ -1,0 +1,8 @@
+fweb-ml.demo -O "/home/seahk/websites/fweb-bot-known" -%v
+File generated automatically on Thu, 13 Mar 2025 04:39:57, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

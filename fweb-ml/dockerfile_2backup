@@ -1,0 +1,15 @@
+# Use a lightweight Linux distribution as base image
+FROM nginx:alpine
+
+# Copy custom NGINX configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the HTML files into the NGINX web server's document root
+COPY html/ /usr/share/nginx/html
+
+# Expose port 80 for incoming web traffic
+EXPOSE 80
+
+# Start NGINX
+CMD ["nginx", "-g", "daemon off;"]
+

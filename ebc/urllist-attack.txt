@@ -1,0 +1,6 @@
+"http://dvwa.sgebc.local/attack.php?id=rcmd.exe"
+"http://dvwa.sgebc.local/favicon.ico"
+"http://dvwa.sgebc.local/phpinfo.php"
+"http://dvwa.sgebc.local/phpinfo.php/wp-login.php?action=rp&key[]=HTTP/1.1"
+"http://dvwa.sgebc.local/vulnerabilities/xss_r/?name=<script>alert()</script>"
+"http://dvwa.sgebc.local/test.asp?id=' or 1=1"

@@ -1,0 +1,93 @@
+from flask import Flask, render_template, request, redirect, url_for, session, make_response
+import mysql.connector
+import os
+
+app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY", "mysecret")  # Secure this key in production
+
+# Database Configuration
+DB_HOST = os.getenv("DB_HOST", "172.19.8.82")
+DB_USER = os.getenv("DB_USER", "cbc")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "fortinet")
+DB_NAME = os.getenv("DB_NAME", "flaskapp")
+
+def get_db_connection():
+    return mysql.connector.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME
+    )
+
+# 🚀 Login Route
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM users WHERE username=%s AND password=%s", (username, password))
+        user = cursor.fetchone()
+        conn.close()
+        
+        if user:
+            session['user_id'] = user[0]
+            session['username'] = username
+            response = make_response(redirect(url_for('dashboard')))
+            response.set_cookie('session_id', str(user[0]), httponly=True)  # Secure session cookie
+            return response
+        else:
+            return "Invalid Credentials! Try again."
+    
+    return render_template('login.html')
+
+# 🚀 User Registration Route
+@app.route('/adduser', methods=['GET', 'POST'])
+def adduser():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, password))
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('login'))  # Redirect to login after registering
+
+    return render_template('adduser.html')
+
+# 🚀 Dashboard Route (Restricted to Logged-in Users)
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))  # Redirect if not logged in
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    if request.method == 'POST':
+        comment = request.form['comment']
+        cursor.execute("INSERT INTO comments (user_id, comment) VALUES (%s, %s)", (session['user_id'], comment))
+        conn.commit()
+    
+    cursor.execute("SELECT users.username, comments.comment FROM comments JOIN users ON comments.user_id = users.id ORDER BY comments.id DESC")
+    comments = cursor.fetchall()
+    conn.close()
+    
+    return render_template('dashboard.html', username=session['username'], comments=comments)
+
+# 🚀 Logout Route
+@app.route('/logout')
+def logout():
+    session.clear()
+    response = make_response(redirect(url_for('login')))
+    response.set_cookie('session_id', '', expires=0)  # Clear session cookie
+    return response
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+

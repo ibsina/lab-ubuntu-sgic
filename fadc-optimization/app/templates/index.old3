@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FortiADC Demo - Image Gallery</title>
+  
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #ffffffcc;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    #ajax-message {
+      font-style: italic;
+      margin-top: 10px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>FortiADC Demo</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('upload') }}">Upload Image</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <section id="image-gallery">
+      <h2>Image Gallery</h2>
+      {% if images %}
+      <div class="gallery">
+        {% for image in images %}
+        <div class="gallery-item">
+          <img src="{{ url_for('static', filename='images/' + image) }}" alt="Image {{ loop.index }}" />
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+        <p>No images uploaded yet.</p>
+      {% endif %}
+    </section>
+
+    <section id="ajax-demo">
+      <h2>Live Status</h2>
+      <div id="ajax-message">Loading status...</div>
+    </section>
+
+  </div>
+
+  <script>
+    function fetchData() {
+      fetch("/api/data")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("ajax-message").innerText =
+            `${data.message} (${data.timestamp})`;
+        })
+        .catch(err => {
+          console.error("AJAX error:", err);
+          document.getElementById("ajax-message").innerText = "Failed to load data.";
+        });
+    }
+
+    // Update every 5 seconds
+    setInterval(fetchData, 5000);
+    fetchData(); // initial load
+  </script>
+
+</body>
+</html>
+

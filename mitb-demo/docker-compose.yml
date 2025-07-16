@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./app
+    ports:
+      - "8031:5000"
+
+  mitb:
+    build: ./mitb
+    ports:
+      - "8032:8000"
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>📤 Upload an Image</h1>
+        <p>Choose an image (JPG, PNG, GIF) under 5MB.</p>
+    </header>
+
+    <section class="upload-form">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        <p><a href="/">← Back to Gallery</a></p>
+    </section>
+</body>
+</html>
+

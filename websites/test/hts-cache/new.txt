@@ -1,0 +1,5 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+02:09:52	39113/39113	---M--	500	error ('Internal%20Server%20Error')	text/html		https://172.19.8.98/robots.txt		(from )
+02:09:53	39103/39103	---M--	500	error ('Internal%20Server%20Error')	text/html		https://172.19.8.98/	/home/seahk/websites/test/172.19.8.98/index.html	(from )
+02:09:54	39103/39103	---M--	500	error ('Internal%20Server%20Error')	text/html		https://172.19.8.98/	/home/seahk/websites/test/172.19.8.98/index.html	(from )
+02:09:55	39103/39103	---M--	500	error ('Internal%20Server%20Error')	text/html		https://172.19.8.98/	/home/seahk/websites/test/172.19.8.98/index.html	(from )

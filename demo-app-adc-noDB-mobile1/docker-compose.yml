@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5005:5000"
+    environment:
+      - DB_HOST=172.19.8.82
+      - DB_USER=cbc
+      - DB_PASSWORD=fortinet
+      - DB_NAME=flaskapp
+      - SECRET_KEY=supersecurekey123   # Set a secure key
+
+networks:
+  mysql_network:
+    driver: bridge
+

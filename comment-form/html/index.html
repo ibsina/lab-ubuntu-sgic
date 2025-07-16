@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Comment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #28a745;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>This is Server in SGIC Singapore</h1>
+    <h1>Unmatched Application Acceleration</h1>
+
+    <p>FortiADC provides unmatched application acceleration, load balancing, and web security, regardless of whether it is used for applications within a single data center or serves multiple applications for millions of users around the globe. FortiADC includes application acceleration, WAF, IPS, SSLi, link load balancing, and user authentication in one solution. The solution delivers availability, performance, and security in a single, all-inclusive license. </p>
+    <h1></h1>
+
+    <h1>Submit Your Comment</h1>
+    <form action="submit-comment.php" method="post">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" required>
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" required>
+
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" rows="5" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
+

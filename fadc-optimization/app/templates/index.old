@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FortiADC Optimization Demo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>⚡ FortiADC Application Optimization Demo</h1>
+        <p>Showcasing caching, compression, and connection reuse features.</p>
+    </header>
+
+    <section class="gallery-section">
+        <h2>🖼️ Image Gallery</h2>
+        <div class="gallery">
+            {% for i in range(1, 31) %}
+                <img src="{{ url_for('static', filename='images/img%02d.jpg' % i) }}" alt="Image {{ i }}">
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="ajax-section">
+        <h2>🔁 Dynamic AJAX Data</h2>
+        <div id="data">Fetching data...</div>
+    </section>
+
+    <footer>
+        <p>© {{ 2025 }} FortiADC Demo</p>
+    </footer>
+</body>
+</html>
+

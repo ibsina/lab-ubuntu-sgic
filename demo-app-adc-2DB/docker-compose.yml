@@ -1,0 +1,64 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5002:5000"
+    environment:
+      - DB_HOST=172.19.8.63
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_NAME=flaskapp
+    depends_on:
+      - mysql_primary
+      - mysql_slave
+
+  mysql_primary:
+    image: mysql:8.0
+    container_name: mysql_primary
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=flaskapp
+      - MYSQL_USER=replica
+      - MYSQL_PASSWORD=slavepassword
+    ports:
+      - "3306:3306"
+    command:
+      - --server-id=1
+      - --log-bin=mysql-bin
+      - --binlog-do-db=flaskapp
+      - --gtid-mode=ON
+      - --enforce-gtid-consistency=true
+      - --log-slave-updates=true
+      - --read-only=false
+      - --bind-address=0.0.0.0
+      - --default-authentication-plugin=mysql_native_password
+    networks:
+      - mysql_network
+
+  mysql_slave:
+    image: mysql:8.0
+    container_name: mysql_slave
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3307:3306"
+    command:
+      - --server-id=2
+      - --log-bin=mysql-bin
+      - --binlog-do-db=flaskapp
+      - --gtid-mode=ON
+      - --enforce-gtid-consistency=true
+      - --read-only=true
+      - --default-authentication-plugin=mysql_native_password
+    depends_on:
+      - mysql_primary
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
+    driver: bridge
+

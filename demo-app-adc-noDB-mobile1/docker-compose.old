@@ -1,0 +1,55 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5002:5000"
+    environment:
+      - DB_HOST=mysql_primary
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_NAME=flaskapp
+    depends_on:
+      - mysql_primary
+      - mysql_slave
+
+  mysql_primary:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=flaskapp
+    ports:
+      - "3306:3306"
+    command:
+      --server-id=1
+      --log-bin=mysql-bin
+      --binlog-do-db=flaskapp
+      --gtid-mode=ON
+      --enforce-gtid-consistency=true
+      --log-replica-updates=true
+      --read-only=false
+    networks:
+      - mysql_network
+
+  mysql_slave:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3307:3306"
+    command:
+      --server-id=2
+      --log-bin=mysql-bin
+      --binlog-do-db=flaskapp
+      --gtid-mode=ON
+      --enforce-gtid-consistency=true
+      --read-only=true
+    depends_on:
+      - mysql_primary
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
+    driver: bridge
+

@@ -1,0 +1,8 @@
+https://172.19.8.98 -O "/home/seahk/websites/test2" -%v -F Firefox
+File generated automatically on Thu, 12 Jun 2025 02:12:54, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

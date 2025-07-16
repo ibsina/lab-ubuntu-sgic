@@ -1,0 +1,9 @@
+"http://dvwa.sgebc.local/login.php"
+"http://dvwa.sgebc.local/dvwa/css/login.css"
+"http://dvwa.sgebc.local/dvwa/images/login_logo.png"
+"http://dvwa.sgebc.local/favicon.ico"
+"https://dvwa.sgebc.local/login.php"
+"https://dvwa.sgebc.local/dvwa/css/login.css"
+"https://dvwa.sgebc.local/dvwa/images/login_logo.png"
+"https://dvwa.sgebc.local/favicon.ico"
+
